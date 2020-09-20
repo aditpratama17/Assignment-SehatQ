@@ -36,7 +36,7 @@ and also the results of application generated locally using postman
    - param 
       {"auth":
              {
-               "email":"zetc0de@gmail.com",
+               "email":"adite@gmail.com",
                "password":"123456"
              }
       }
@@ -50,16 +50,26 @@ and also the results of application generated locally using postman
 3. Create an API where user can book a schedule with doctor
     
    - url : 127.0.0.1:3000/book/create
+   - param 
+      { 
+       "book" : {
+        "id_doctor_schedule": "2",
+        "id_administrator":"1",
+        "state":"0"
+       }
+      }
    - result
 
 4. The maximum user can book within 30 minutes before the doctor starts the schedule.
   
    - url : 127.0.0.1:3000/book/create
+   - param same like number 3
    - result
 
 5. A total of 10 users can book the same doctor.
   
    - url : 127.0.0.1:3000/book/create
+   - param same like number 3
    - result
 
 6. Create an API to display doctor schedule with patients
