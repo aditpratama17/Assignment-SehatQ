@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Hospital, type: :model do
-  context 'validation tests' do
-    it 'ensures hospital name presence' do
-      hospital = Hospital.new(address: 'jakarta').save
-      expect(Hospital).to eq(false)
-    end
+    context 'hospital model' do
+      describe '#hospital_name' do
+        it { is_expected.to validate_presence_of(:hospital_name) }
+      end
 
-    it 'ensures address presence' do
-      hospital = Hospital.new(hospital_name: 'Budi Lin').save
-      expect(Hospital).to eq(false)
+      describe '#address' do
+        it { is_expected.to validate_presence_of(:address) }
+      end
     end
-  end
 end

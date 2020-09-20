@@ -1,4 +1,5 @@
 class HospitalsController < ApplicationController
+
 	def index
 		@hospital = Hospital.all
 		render json: { result:true, hospital:@hospital}, status: :ok

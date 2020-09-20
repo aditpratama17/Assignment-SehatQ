@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
 
 	def show
-		
+
 		#Create an API to display doctor schedule with patients
 
-		@bookAll = ActiveRecord::Base.connection.execute("SELECT books.id, books.`state`, administrators.username, administrators.email, doctors.`name`, hospitals.hospital_name ,doctor_schedules.schedule_day, doctor_schedules.start_time, doctor_schedules.end_time FROM books LEFT JOIN administrators ON books.id_administrator = administrators.id LEFT JOIN doctor_schedules on books.id_doctor_schedule = doctor_schedules.id LEFT JOIN doctors ON doctor_schedules.id_doctor = doctors.id LEFT JOIN hospitals ON doctor_schedules.id_hospital = hospitals.id")
+		@bookAll = ActiveRecord::Base.connection.execute("SELECT books.id, books.state, administrators.username, administrators.email, doctors.name, hospitals.hospital_name ,doctor_schedules.schedule_day, doctor_schedules.start_time, doctor_schedules.end_time FROM books LEFT JOIN administrators ON books.id_administrator = administrators.id LEFT JOIN doctor_schedules on books.id_doctor_schedule = doctor_schedules.id LEFT JOIN doctors ON doctor_schedules.id_doctor = doctors.id LEFT JOIN hospitals ON doctor_schedules.id_hospital = hospitals.id")
 		render json: { result:true, bookAll: @bookAll }, status: :ok
 	end
 

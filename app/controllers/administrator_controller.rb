@@ -1,6 +1,4 @@
 class AdministratorController < ApplicationController
-	before_action :authenticate_administrator, only: [ :index, :show, :update, :delete ]
-	before_action :set_administrator, only: [ :show, :update, :delete ]
 	def index
 	  @administrator = Administrator.all
 	  render json: { result: true, administrator: @administrator }, status: :ok
